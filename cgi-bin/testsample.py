@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import unittest
+import re
 
 class TestSample(unittest.TestCase):
     def setUp(self):
@@ -24,6 +25,12 @@ class TestSample(unittest.TestCase):
     def testdictionary(self):
         actual = {'a': 1, 'b': 'text', 'c' : 100}
         self.assertEqual('text', actual['b'])
+
+    def testRegex(self):
+        pattern = re.compile(r"\$if\s+(.*\:)")
+        actual = pattern.search('$if True:')
+        self.assertTrue(actual)
+        self.assertEqual('True:', actual.group(1))
 
 if __name__ == '__main__':
     unittest.main()
