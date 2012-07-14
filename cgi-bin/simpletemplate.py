@@ -64,7 +64,7 @@ class SimpleTemplate(object):
                         output += out
                         break
                     except Exception, e:
-                        raise "Following error occured in line %d\n%s" % (cur_line, str(e))
+                        raise Exception("Following error occured in line %d\n%s" % (cur_line, str(e)))
             if not pattern_found:
                 output += line+'\n'
             cur_line += 1
